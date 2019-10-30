@@ -1,3 +1,9 @@
+ifeq ($(DEBUG), true)
+	CC = gcc -g
+else
+	CC = gcc
+endif
+
 all: main.c song_node.o my_tunes.o
 	gcc -o program main.o song_node
 main.o: main.c song_node.h my_tunes.h
