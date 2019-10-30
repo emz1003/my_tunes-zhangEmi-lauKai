@@ -3,12 +3,6 @@
 #include <string.h>
 //#include "headers.h"
 
-struct song_node{
-  char name[100];
-  char artist[100];
-  struct song_node *next;
-};
-
 void print_list(struct song_node *x) {
     if (x == NULL) {
       printf("[ ]\n");
