@@ -7,8 +7,8 @@ int main()
     struct song_node *table[27];
     printf("Testing print_list:\n");
     table[11] = insert_front(NULL, "Khalid", "Talk");
-    table[1] = insert_front(NULL, "Avicii", "Levels");
-    table[1] = insert_front(table[1], "Avicii", "Waiting for Love");
+    table[1] = insert_front(NULL, "Avicii", "Waiting for Love");
+    table[1] = insert_front(table[1], "Avicii", "Levels");
     print_list(table[1]);
     print_list(table[11]);
 }

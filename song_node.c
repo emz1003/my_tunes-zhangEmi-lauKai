@@ -7,10 +7,10 @@ void print_list(struct song_node *x)
 {
     printf("[");
     while(x) {
-        printf("artist: %s\t song: %s\t", x->artist, x->name);
+        printf("artist: %s\t song: %s", x->artist, x->name);
         x = x->next;
         if(x) {
-            printf(", ");
+            printf("\t, ");
         } else {
             break;
         }
