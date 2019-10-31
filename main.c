@@ -6,8 +6,12 @@ int main()
 {
     struct song_node *table[27];
     // table =  malloc(27 *sizeof(struct song_node));
+    // table[1] = calloc(1, sizeof(struct song_node));
+    // table[11] = calloc(1, sizeof(struct song_node));
     printf("Testing print_list:\n");
-    insert_front(table[11], "Khalid", "Talk");
-    insert_front(table[1], "Avicii", "Levels");
-    print_list(table);
+    table[11] = insert_front(NULL, "Khalid", "Talk");
+    table[1] = insert_front(NULL, "Avicii", "Levels");
+    table[1] = insert_front(table[1], "Avicii", "Waiting for Love");
+    print_list(table[1]);
+    print_list(table[11]);
 }
