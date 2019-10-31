@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "my_tunes.h"
+#include "song_node.h"
 
 int main()
 {
-    struct song_node *table[27];
+    struct song_node *run = calloc (1, sizeof(struct song_node));
     // table =  malloc(27 *sizeof(struct song_node));
     // table[1] = calloc(1, sizeof(struct song_node));
     // table[11] = calloc(1, sizeof(struct song_node));
