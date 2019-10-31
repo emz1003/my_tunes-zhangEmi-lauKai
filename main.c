@@ -4,10 +4,7 @@
 
 int main()
 {
-    struct song_node *run = calloc (1, sizeof(struct song_node));
-    // table =  malloc(27 *sizeof(struct song_node));
-    // table[1] = calloc(1, sizeof(struct song_node));
-    // table[11] = calloc(1, sizeof(struct song_node));
+    struct song_node *table[27];
     printf("Testing print_list:\n");
     table[11] = insert_front(NULL, "Khalid", "Talk");
     table[1] = insert_front(NULL, "Avicii", "Levels");
