@@ -28,13 +28,13 @@ struct song_node *insert_front(struct song_node *x, char *artist, char *name)
     return temp;
 }
 
-struct song_node *first_song(struct song_node *x, char *artist) {
+char *find_first(struct song_node *x, char *artist) {
     if (!strcmp(x->artist, artist)) {
-        return x->next;
+        return x->name;
     }
 
     if (strcmp(x->artist, artist) < 0) { // if artist > x->artist
-        return first_song(x->next, artist);
+        return find_first(x->next, artist);
     }
 
     return NULL; // artist not found
