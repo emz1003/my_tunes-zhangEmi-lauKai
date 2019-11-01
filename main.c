@@ -15,4 +15,24 @@ int main()
 
     /* test find_first */
     printf("find first song by Avicii: %s\n", find_first(table[0], "Avicii"));
+
+    /* test find_node */
+    printf("Testing find node:\n");
+    printf("Looking for Avicii: Levels...\n");
+
+    struct song_node * temp = find_node(table[0], "Avicii", "Levels");
+    if(temp){
+        printf("Node Found! %s: %s\n", temp->artist, temp->name);
+    } else {
+        printf("Node Not Found\n");
+    }
+
+    printf("Looking for Avicii: Wake Me Up...\n");
+    temp = find_node(table[0], "Avicii", "Wake Me Up");
+    if(temp){
+        printf("Node Found! %s: %s\n", temp->artist, temp->name);
+    }
+    else {
+        printf("Node Not Found\n");
+    }
 }
