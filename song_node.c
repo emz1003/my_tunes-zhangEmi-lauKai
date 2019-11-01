@@ -52,6 +52,18 @@ struct song_node *find_node(struct song_node *x, char *artist, char *name){
     }
     return NULL;
 }
+
+struct song_node *insert_order(struct song_node *original, struct song_node *x){
+    struct song_node *oldnext = calloc(1, sizeof(struct song_node));
+    while(original){
+      oldnext = original -> next;
+      if(strcmp(x -> name, original -> name) > 0 && strcmp(x -> name, oldnext -> name) < 0){
+        x -> next = oldnext;
+        original -> next = x;
+      }
+      original = original -> next;
+    }
+}
 // struct song_node *random_element();
 // void remove_node(struct song_node *node);
 // void free_list(struct song_node *nodes);
