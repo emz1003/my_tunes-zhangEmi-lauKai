@@ -5,6 +5,7 @@
 
 int main()
 {
+    srand(time(NULL));
     struct song_node *table[27];
     printf("Testing print_list:\n");
     /* test insert_front */
@@ -47,4 +48,10 @@ int main()
     table[10] = insert_order(table[10], temp2);
     print_list(table[10]);
     printf("\n");
+
+    /* test random element */
+    struct song_node * arand = random_element(table[0]);
+    printf("selecting random element from A: %s, %s\n", arand->artist, arand->name);
+    struct song_node * krand = random_element(table[10]);
+    printf("selecting random element from K: %s, %s\n", krand->artist, krand->name);
 }

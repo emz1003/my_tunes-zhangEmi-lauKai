@@ -72,14 +72,15 @@ struct song_node *insert_order(struct song_node *original, struct song_node *x){
 struct song_node *random_element(struct song_node *node) {
     int len = 0;
     struct song_node * len_finder = node; 
-    while(node) {
-        node = node->next;
+    while(len_finder) {
+         len_finder = len_finder->next;
         len++;
     }
-    srand(time(NULL));
-    int rand = (float)rand()/(float)(RAND_MAX)) * len;
+    int r = rand();
+    int rand_index =((float)(r % 100) / 100) * (float)len;
+    printf("%d\n", rand_index);
     int i;
-    for (i = 0; i < rand; i++) {
+    for (i = 0; i < rand_index; i++) {
         node = node->next;
     }
     return node;
