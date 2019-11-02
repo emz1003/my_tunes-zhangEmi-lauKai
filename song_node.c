@@ -61,9 +61,12 @@ struct song_node *insert_order(struct song_node *original, struct song_node *x){
       if(strcmp(x -> name, original -> name) > 0 && strcmp(x -> name, oldnext -> name) < 0){
         x -> next = oldnext;
         original -> next = x;
+        return original;
       }
       original = original -> next;
     }
+    return NULL;
+
 }
 
 struct song_node *random_element(struct song_node *node) {

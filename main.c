@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "song_node.h"
 
 int main()
@@ -7,26 +8,27 @@ int main()
     struct song_node *table[27];
     printf("Testing print_list:\n");
     /* test insert_front */
-    table[11] = insert_front(NULL, "Khalid", "Talk");
+    table[10] = insert_front(NULL, "Khalid", "Talk");
+    table[10] = insert_front(table[10], "Khalid", "Eastside");
     table[0] = insert_front(NULL, "Avicii", "Waiting for Love");
     table[0] = insert_front(table[0], "Avicii", "Levels");
     print_list(table[0]);
-    print_list(table[11]);
+    print_list(table[10]);
+    printf("\n");
 
     /* test find_first */
-    printf("find first song by Avicii: %s\n", find_first(table[0], "Avicii"));
+    printf("Find first song by Avicii: %s\n", find_first(table[0], "Avicii"));
+    printf("\n");
 
     /* test find_node */
     printf("Testing find node:\n");
     printf("Looking for Avicii: Levels...\n");
-
     struct song_node * temp = find_node(table[0], "Avicii", "Levels");
     if(temp){
         printf("Node Found! %s: %s\n", temp->artist, temp->name);
     } else {
         printf("Node Not Found\n");
     }
-
     printf("Looking for Avicii: Wake Me Up...\n");
     temp = find_node(table[0], "Avicii", "Wake Me Up");
     if(temp){
@@ -35,4 +37,14 @@ int main()
     else {
         printf("Node Not Found\n");
     }
+    printf("\n");
+
+    /* test insert_order */
+    printf("Inserting Khalid: Love Lies into the song node:\n");
+    struct song_node * temp2 = calloc(1, sizeof(struct song_node));
+    strcpy(temp2->artist, "Khalid");
+    strcpy(temp2->name, "Love Lies");
+    table[10] = insert_order(table[10], temp2);
+    print_list(table[10]);
+    printf("\n");
 }
