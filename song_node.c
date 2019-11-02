@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "song_node.h"
 
 void print_list(struct song_node *x)
@@ -64,6 +65,22 @@ struct song_node *insert_order(struct song_node *original, struct song_node *x){
       original = original -> next;
     }
 }
-// struct song_node *random_element();
+
+struct song_node *random_element(struct song_node *node) {
+    int len = 0;
+    struct song_node * len_finder = node; 
+    while(node) {
+        node = node->next;
+        len++;
+    }
+    srand(time(NULL));
+    int rand = (float)rand()/(float)(RAND_MAX)) * len;
+    int i;
+    for (i = 0; i < rand; i++) {
+        node = node->next;
+    }
+    return node;
+
+}
 // void remove_node(struct song_node *node);
 // void free_list(struct song_node *nodes);
