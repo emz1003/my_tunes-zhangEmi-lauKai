@@ -103,6 +103,14 @@ int main()
     print_list(table[1]);
     printf("\n");
 
+    printf("Added a new bazzi song:\n");
     add_song_node("bazzi", "beautiful");
     print_list(table[1]);
+    printf("\n");
+
+    printf("Testing print_letter:\n");
+    add_song_node("post malone", "sunflower");
+    table[15]= insert_order(table[15], "post malone", "circles");
+    print_letter('p');
+
 }
