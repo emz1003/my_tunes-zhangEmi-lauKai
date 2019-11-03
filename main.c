@@ -114,4 +114,20 @@ int main()
     add_song_node("post malone", "better now");
     print_letter('p');
 
+    /* testing find song */
+    printf("Testing find song:\n");
+
+    printf("looking for [post malone: sunflower]: \n");
+    struct song_node *sunflower = find_song("post malone", "sunflower");
+    if (sunflower)
+        printf("song found! %s : %s\n", sunflower->artist, sunflower->song);
+    else
+        printf("song not found\n");
+    
+    printf("looking for [post malone: deja vu]: \n");
+    struct song_node *dejavu = find_song("post malone", "deja vu");
+    if (dejavu)
+        printf("song found! %s : %s\n", dejavu->artist, dejavu->song);
+    else
+        printf("song not found\n");
 }

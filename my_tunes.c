@@ -13,10 +13,6 @@ void add_song_node(char *artist, char *song){
         table[i] = insert_order(table[i], artist, song);
       }
     }
-    // char temp[2];
-    // strncpy ( temp, artist, 1 );
-    // int temp2 = temp[0] - 97;
-    // table[temp2] = insert_order(table[temp2], artist, song);
 }
 
 struct song_node *find_song(char *artist, char *song) {
@@ -54,6 +50,7 @@ void print_letter(char c) {
 void print_artist(char *artist) {
 
 }
+
 // void print_all(); // kl 5
 void shuffle(int n){
   //print out a series of randomly chosen songs
