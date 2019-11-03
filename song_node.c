@@ -12,37 +12,39 @@ struct song_node *init_song_node(char *artist, char *song, struct song_node *nex
     return new;
 }
 
-struct song_node *insert_front(struct song_node *node, struct song_node *x)
+struct song_node *insert_front(struct song_node *node, char *artist, char *song)
 {
+    struct song_node *x = init_song_node(artist, song, NULL);
     x->next = node;
     return x;
 }
 
-struct song_node *insert_order(struct song_node *original, struct song_node *x){
+struct song_node *insert_order(struct song_node *original, char *artist, char *song){
     // if original is null or artist in front
-    if(!original || strcmp(original->artist, x->artist) > 0){
-        return insert_front(original, x);
+    struct song_node *node = init_song_node(artist, song, NULL);
+    if(!original || strcmp(original->artist, artist) > 0){
+        return insert_front(original, artist, song);
     }
     // same artist and song in front
-    if(!strcmp(original->artist, x->artist) && strcmp(original->song, x->song) >= 0){
-        return insert_front(original, x);
+    if(!strcmp(original->artist, artist) && strcmp(original->song, song) >= 0){
+        return insert_front(original, artist, song);
     }
 
     struct song_node *temp = original;
     struct song_node *next = temp->next;
 
     while(next){
-        if (strcmp(next->artist, x->artist) > 0)
+        if (strcmp(next->artist, artist) > 0)
             break;
 
-        if (!strcmp(next->artist, x->artist) && strcmp(next->song, x->song) >= 0)
+        if (!strcmp(next->artist, artist) && strcmp(next->song, song) >= 0)
             break;
         temp = next;
         next = temp->next;
     }
 
-    temp->next = x;
-    x->next = next;
+    temp->next = node;
+    node->next = next;
     return original;
 }
 
@@ -52,11 +54,10 @@ void print_list(struct song_node *x)
     while(x) {
         printf("%s: %s", x->artist, x->song);
         x = x->next;
-        if(x) {
+        if(x)
             printf(" | ");
-        } else {
+        else 
             break;
-        }
     }
     printf("]\n");
 }

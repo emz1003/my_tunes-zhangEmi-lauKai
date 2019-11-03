@@ -12,10 +12,10 @@ int main()
     /* test insert_front */
 
     table[10] = init_song_node("khalid","talk",NULL);
-    table[10] = insert_front(table[10], init_song_node("katy perry", "harleys in hawaii", NULL));
+    table[10] = insert_front(table[10], "katy perry", "harleys in hawaii");
 
     table[0] = init_song_node("avicii", "waiting for love", NULL);
-    table[0] = insert_front(table[0], init_song_node("avicii", "levels", NULL));
+    table[0] = insert_front(table[0],"avicii", "levels");
     print_list(table[0]);
     print_list(table[10]);
     printf("\n");
@@ -46,22 +46,22 @@ int main()
     /* test insert_order */
     print_list(table[10]);
     printf("Inserting katy perry: never really over node:\n");\
-    table[10] = insert_order(table[10], init_song_node("katy perry", "never really over", NULL));
+    table[10] = insert_order(table[10], "katy perry", "never really over");
     print_list(table[10]);
     printf("\n");
 
     printf("Inserting khalid: walk into the song node:\n");
-    table[10] = insert_order(table[10], init_song_node("khalid", "walk into the song", NULL));
+    table[10] = insert_order(table[10], "khalid", "walk into the song");
     print_list(table[10]);
     printf("\n");
 
     printf("Inserting katy perry: firework node:\n");
-    table[10] = insert_order(table[10], init_song_node("katy perry", "firework", NULL));
+    table[10] = insert_order(table[10], "katy perry", "firework");
     print_list(table[10]);
     printf("\n");
 
     printf("Inserting kelly clarkson: catch my breath node:\n");
-    table[10] = insert_order(table[10], init_song_node("kelly clarkson", "catch my breath", NULL));
+    table[10] = insert_order(table[10], "kelly clarkson", "catch my breath");
     print_list(table[10]);
     printf("\n");
 
@@ -98,11 +98,11 @@ int main()
 
     /* test add song node */
     printf("Testing add_song_node by adding a new song_node with artist bazzi:\n");
-    add_song_node(init_song_node("bazzi","mine",NULL));
+    add_song_node("bazzi", "mine");
     printf("Printing table[1]:\n");
     print_list(table[1]);
     printf("\n");
 
-    add_song_node(init_song_node("bazzi","beautiful",NULL));
+    add_song_node("bazzi", "beautiful");
     print_list(table[1]);
 }
