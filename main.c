@@ -110,7 +110,8 @@ int main()
 
     printf("Testing print_letter:\n");
     add_song_node("post malone", "sunflower");
-    table[15]= insert_order(table[15], "post malone", "circles");
+    add_song_node("post malone", "circles");
+    add_song_node("post malone", "better now");
     print_letter('p');
 
 }
