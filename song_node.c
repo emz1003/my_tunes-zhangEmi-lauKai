@@ -4,10 +4,10 @@
 #include <time.h>
 #include "song_node.h"
 
-struct song_node *init_song_node(char *artist, char *name, struct song_node *next) {
+struct song_node *init_song_node(char *artist, char *song, struct song_node *next) {
     struct song_node *new = malloc(sizeof(struct song_node));
     new->artist = artist;
-    new->name = name;
+    new->song = song;
     new->next = next;
     return new;
 }
@@ -23,8 +23,8 @@ struct song_node *insert_order(struct song_node *original, struct song_node *x){
     if(!original || strcmp(original->artist, x->artist) > 0){
         return insert_front(original, x);
     }
-    // same artist and name in front
-    if(!strcmp(original->artist, x->artist) && strcmp(original->name, x->name) >= 0){
+    // same artist and song in front
+    if(!strcmp(original->artist, x->artist) && strcmp(original->song, x->song) >= 0){
         return insert_front(original, x);
     }
 
@@ -35,7 +35,7 @@ struct song_node *insert_order(struct song_node *original, struct song_node *x){
         if (strcmp(next->artist, x->artist) > 0)
             break;
 
-        if (!strcmp(next->artist, x->artist) && strcmp(next->name, x->name) >= 0)
+        if (!strcmp(next->artist, x->artist) && strcmp(next->song, x->song) >= 0)
             break;
         temp = next;
         next = temp->next;
@@ -50,7 +50,7 @@ void print_list(struct song_node *x)
 {
     printf("[");
     while(x) {
-        printf("%s: %s", x->artist, x->name);
+        printf("%s: %s", x->artist, x->song);
         x = x->next;
         if(x) {
             printf(" | ");
@@ -61,9 +61,9 @@ void print_list(struct song_node *x)
     printf("]\n");
 }
 
-struct song_node *find_node(struct song_node *x, char *artist, char *name){
+struct song_node *find_node(struct song_node *x, char *artist, char *song){
     while (x) {
-      if (strcmp(x -> artist, artist) == 0 && strcmp(x -> name, name) == 0){
+      if (strcmp(x -> artist, artist) == 0 && strcmp(x -> song, song) == 0){
         return x;
       }
       x = x->next;
@@ -73,7 +73,7 @@ struct song_node *find_node(struct song_node *x, char *artist, char *name){
 
 char *find_first(struct song_node *x, char *artist) {
     if (!strcmp(x->artist, artist)) {
-        return x->name;
+        return x->song;
     }
 
     if (strcmp(x->artist, artist) < 0) { // if artist > x->artist

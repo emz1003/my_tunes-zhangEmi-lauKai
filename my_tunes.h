@@ -5,7 +5,7 @@
 struct song_node * table[27];
 
 void add_song_node(struct song_node *node); // kl 1
-struct song_node *find_song(); // ez 1
+struct song_node *find_song(char *artist, char *song); // ez 1
 char *find_artist(char *artist); // ez 2
 void print_letter(char c); // kl 3
 void print_artist(char *artist); //kl 4

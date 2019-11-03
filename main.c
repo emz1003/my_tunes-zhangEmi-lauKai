@@ -28,14 +28,14 @@ int main()
     printf("Looking for Avicii: Levels...\n");
     struct song_node * temp = find_node(table[0], "Avicii", "Levels");
     if(temp){
-        printf("Node Found! %s: %s\n", temp->artist, temp->name);
+        printf("Node Found! %s: %s\n", temp->artist, temp->song);
     } else {
         printf("Node Not Found\n");
     }
     printf("Looking for Avicii: Wake Me Up...\n");
     temp = find_node(table[0], "Avicii", "Wake Me Up");
     if(temp){
-        printf("Node Found! %s: %s\n", temp->artist, temp->name);
+        printf("Node Found! %s: %s\n", temp->artist, temp->song);
     }
     else {
         printf("Node Not Found\n");
@@ -64,9 +64,9 @@ int main()
 
     /* test random element */
     struct song_node * arand = random_element(table[0]);
-    printf("selecting random element from A: %s, %s\n", arand->artist, arand->name);
+    printf("selecting random element from A: %s, %s\n", arand->artist, arand->song);
     struct song_node * krand = random_element(table[10]);
-    printf("selecting random element from K: %s, %s\n", krand->artist, krand->name);
+    printf("selecting random element from K: %s, %s\n", krand->artist, krand->song);
     printf("\n");
 
     /* test remove node */
@@ -89,4 +89,5 @@ int main()
     printf("freeing table[10] (K):");
     table[10] = free_list(table[10]);
     print_list(table[10]);
+
 }
