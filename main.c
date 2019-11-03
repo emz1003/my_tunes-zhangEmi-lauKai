@@ -106,7 +106,6 @@ int main()
     add_song_node("bazzi", "mine");
     printf("Printing table[1]:\n");
     print_list(table[1]);
-    printf("\n");
 
     printf("Added a new bazzi song:\n");
     add_song_node("bazzi", "beautiful");
@@ -120,10 +119,6 @@ int main()
     add_song_node("pharrell williams", "happy");
 
     /* test print_letter */
-    printf("Testing print_letter:\n");
-    print_letter('p');
-    printf("\n");
-
     printf("Testing print_letter:\n");
     print_letter('p');
     printf("\n");
@@ -153,11 +148,29 @@ int main()
         printf("Song Not Found\n");
 
     /* testing find artist */
-    printf("Testing find artist:\n");
+    printf("Testing find_artist:\n");
 
+    printf("Looking for post malone: \n");
+    char *a0 = find_artist("post malone");
+    if (a0) 
+        printf("Artist Found! %s\n", a0);
+    else
+        printf("Artist Not Found\n");
+    
+    printf("Looking for taylor swift: \n");
+    char *a1 = find_artist("taylor swift");
+    if(a1) 
+        printf("Artist Found! %s\n", a1);
+    else
+        printf("Artist Not Found\n");
+    
+    printf("\n");
     /* testing print all */
     printf("\n");
     /* testing shuffle */
+    printf("Testing shuffle:\n");
+    printf("Shuffling library - returning a sequence of 3: \n");
+    shuffle(3);
     printf("\n");
     /* testing delete song */
     printf("\n");

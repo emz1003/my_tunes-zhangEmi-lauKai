@@ -73,6 +73,9 @@ struct song_node *find_node(struct song_node *x, char *artist, char *song){
 }
 
 char *find_first(struct song_node *x, char *artist) {
+    if(!x)
+        return NULL;
+    
     if (!strcmp(x->artist, artist)) {
         return x->song;
     }
@@ -82,7 +85,6 @@ char *find_first(struct song_node *x, char *artist) {
     }
 
     return NULL; // artist not found
-
 }
 
 struct song_node *random_element(struct song_node *node) {
@@ -94,7 +96,7 @@ struct song_node *random_element(struct song_node *node) {
     }
     int r = rand();
     int rand_index =((float)(r % 100) / 100) * (float)len;
-    printf("%d/%d\n", rand_index, len);
+    //printf("%d/%d\n", rand_index, len);
     int i;
     for (i = 0; i < rand_index; i++) {
         node = node->next;
