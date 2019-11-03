@@ -69,7 +69,7 @@ void print_library(){
       if(table[i] && i != 26){
         printf("Printing the %c list:\n", 'a' + i);
         print_list(table[i]);
-      } else if (i == 26) {
+      } else if (table[i] && i == 26) {
         printf("Printing the misc list:\n");
         print_list(table[26]);
       }

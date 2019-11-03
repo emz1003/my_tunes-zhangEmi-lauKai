@@ -11,5 +11,5 @@ void print_letter(char c);
 void print_artist(char *artist);
 void print_library();
 void shuffle(int n); //print out a series of randomly chosen songs
-void delete_song(char *artist, char *song); 
+void delete_song(char *artist, char *song);
 void clear();

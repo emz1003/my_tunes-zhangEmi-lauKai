@@ -133,6 +133,7 @@ int main()
     add_song_node("21 pilots", "chlorine");
     add_song_node("21 pilots", "the hype");
     printf("\n");
+
     /* test print_letter */
     printf("Testing print_letter:\n");
     print_letter('p');
@@ -181,25 +182,25 @@ int main()
 
     printf("Looking for post malone: \n");
     char *a0 = find_artist("post malone");
-    if (a0) 
+    if (a0)
         printf("Artist Found! %s\n", a0);
     else
         printf("Artist Not Found\n");
-    
+
     printf("Looking for taylor swift: \n");
     char *a1 = find_artist("taylor swift");
-    if(a1) 
+    if(a1)
         printf("Artist Found! %s\n", a1);
     else
         printf("Artist Not Found\n");
 
     printf("Looking for 21 pilots: \n");
     char *a2 = find_artist("21 pilots");
-    if(a2) 
+    if(a2)
         printf("Artist Found! %s\n", a2);
     else
         printf("Artist Not Found\n");
-    
+
     printf("\n");
 
     /* testing print_library */
@@ -220,11 +221,15 @@ int main()
     delete_song("post malone", "circles");
 
     printf("Deleting 21 pilots: chlorine :\n");
+    printf("\n");
     delete_song("21 pilots", "chlorine");
 
     print_library();
     printf("\n");
 
     /* testing clear */
+    printf("Testing clear:\n");
+    clear();
+    print_library();
     printf("\n");
 }
