@@ -7,16 +7,12 @@
 void add_song_node(char *artist, char *song){
     struct song_node *node = init_song_node(artist, song, NULL);
     for (int i = 0; i < 27; i++) {
-      if(table[i]){
-        if(strncmp(artist, table[i]->artist, 1) == 0) {
-          table[i] = insert_order (table[i], artist, song);
-        }
+      char c = i + 'a';
+      char *p = &c;
+      if(strncmp(artist, p, 1) == 0) {
+        table[i] = insert_order(table[i], artist, song);
       }
     }
-    char temp[2];
-    strncpy ( temp, node->artist, 1 );
-    int temp2 = temp[0] - 97;
-    table[temp2] = node;
 }
 
 struct song_node *find_song(char *artist, char *song) {
