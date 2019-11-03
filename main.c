@@ -11,6 +11,8 @@ int main()
     /* test insert_front */
     table[10] = insert_front(NULL, "Khalid", "Talk");
     table[10] = insert_front(table[10], "Khalid", "Eastside");
+    table[10] = insert_front(table[10], "Katy Perry", "Harleys in Hawaii");
+
     table[0] = insert_front(NULL, "Avicii", "Waiting for Love");
     table[0] = insert_front(table[0], "Avicii", "Levels");
     print_list(table[0]);
@@ -41,10 +43,10 @@ int main()
     printf("\n");
 
     /* test insert_order */
-    printf("Inserting Khalid: Love Lies into the song node:\n");
+    printf("Inserting Khalid: Walk into the song node:\n");
     struct song_node * temp2 = calloc(1, sizeof(struct song_node));
-    strcpy(temp2->artist, "Khalid");
-    strcpy(temp2->name, "Love Lies");
+    strcpy(temp2->artist, "Katy Perry");
+    strcpy(temp2->name, "Never Really Over");
     table[10] = insert_order(table[10], temp2);
     print_list(table[10]);
     printf("\n");

@@ -57,12 +57,27 @@ struct song_node *find_node(struct song_node *x, char *artist, char *name){
 struct song_node *insert_order(struct song_node *original, struct song_node *x){
     struct song_node *oldnext = calloc(1, sizeof(struct song_node));
     while(original){
-      oldnext = original -> next;
-      if(strcmp(x -> name, original -> name) > 0 && strcmp(x -> name, oldnext -> name) < 0){
-        x -> next = oldnext;
-        original -> next = x;
-        return original;
-      }
+        oldnext = original -> next;
+        if(strcmp (x -> artist, original -> artist) < 0) { //checks if this song's artist should be first
+            x -> next = original;
+            printf("1\n");
+            return x;
+        }
+        if(strcmp(x -> artist, original -> artist) == 0) {//checks if artist is the same
+          //checks to see where to place the song based on name
+          if(strcmp(x -> name, original -> name) > 0 && strcmp(x -> name, oldnext -> name) < 0){
+            x -> next = oldnext;
+            original -> next = x;
+            //printf("2\n");
+            return original;
+          }
+        }
+        if(!oldnext){ //if this artist is the last one
+            x -> next = oldnext;
+            original -> next = x;
+            printf("3\n");
+            return original;
+        }
       original = original -> next;
     }
     return NULL;
@@ -71,7 +86,7 @@ struct song_node *insert_order(struct song_node *original, struct song_node *x){
 
 struct song_node *random_element(struct song_node *node) {
     int len = 0;
-    struct song_node * len_finder = node; 
+    struct song_node * len_finder = node;
     while(len_finder) {
          len_finder = len_finder->next;
         len++;
