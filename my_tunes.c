@@ -82,7 +82,8 @@ void delete_song(char *artist, char *song){
   char temp[2];
   strncpy(temp, artist, 1);
   int index = temp[0]-97;
-  remove_node(table[index], init_song_node(artist, song, NULL));
+  struct song_node *run = init_song_node(artist, song, NULL);
+  table[index] = remove_node(table[index], run);
 }
 
 void clear(){

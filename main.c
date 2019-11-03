@@ -9,7 +9,8 @@ int main()
     clear();
     srand(time(NULL));
 
-
+    printf("LINKED LIST TESTS\n");
+    printf("=============================\n");
     /* test insert_front */
 
     printf("Testing insert_front:\n");
@@ -18,25 +19,32 @@ int main()
 
     table[0] = init_song_node("avicii", "waiting for love", NULL);
     table[0] = insert_front(table[0],"avicii", "levels");
+    print_list(table[0]);
+    print_list(table[10]);
+    printf("\n");
 
     /* test insert_order */
     printf("Testing insert_order:\n");
-    print_list(table[10]);
+
     printf("Inserting katy perry: never really over node:\n");\
     table[10] = insert_order(table[10], "katy perry", "never really over");
     print_list(table[10]);
+    printf("\n");
 
     printf("Inserting khalid: walk into the song node:\n");
     table[10] = insert_order(table[10], "khalid", "walk into the song");
     print_list(table[10]);
+    printf("\n");
 
     printf("Inserting katy perry: firework node:\n");
     table[10] = insert_order(table[10], "katy perry", "firework");
     print_list(table[10]);
+    printf("\n");
 
     printf("Inserting kelly clarkson: catch my breath node:\n");
     table[10] = insert_order(table[10], "kelly clarkson", "catch my breath");
     print_list(table[10]);
+    printf("\n");
 
     /* test print_list */
     printf("Testing print_list:\n");
@@ -100,6 +108,8 @@ int main()
     print_list(table[10]);
     printf("\n");
 
+    printf("MUSIC LIBRARY TESTS\n");
+    printf("=============================\n");
     /* test add_song_node */
     printf("Testing add_song_node:\n");
     printf("adding a new song_node with artist bazzi:");
