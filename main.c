@@ -10,30 +10,30 @@ int main()
     printf("Testing print_list:\n");
     /* test insert_front */
 
-    table[10] = init_song_node("Khalid","Talk",NULL);
-    table[10] = insert_front(table[10], init_song_node("Katy Perry", "Harleys in Hawaii", NULL));
+    table[10] = init_song_node("khalid","talk",NULL);
+    table[10] = insert_front(table[10], init_song_node("katy perry", "harleys in hawaii", NULL));
 
-    table[0] = init_song_node("Avicii", "Waiting for Love", NULL);
-    table[0] = insert_front(table[0], init_song_node("Avicii", "Levels", NULL));
+    table[0] = init_song_node("avicii", "waiting for love", NULL);
+    table[0] = insert_front(table[0], init_song_node("avicii", "levels", NULL));
     print_list(table[0]);
     print_list(table[10]);
     printf("\n");
 
     /* test find_first */
-    printf("Find first song by Avicii: %s\n", find_first(table[0], "Avicii"));
+    printf("Find first song by avicii: %s\n", find_first(table[0], "avicii"));
     printf("\n");
 
     /* test find_node */
     printf("Testing find node:\n");
-    printf("Looking for Avicii: Levels...\n");
-    struct song_node * temp = find_node(table[0], "Avicii", "Levels");
+    printf("Looking for avicii: levels...\n");
+    struct song_node * temp = find_node(table[0], "avicii", "levels");
     if(temp){
         printf("Node Found! %s: %s\n", temp->artist, temp->name);
     } else {
         printf("Node Not Found\n");
     }
-    printf("Looking for Avicii: Wake Me Up...\n");
-    temp = find_node(table[0], "Avicii", "Wake Me Up");
+    printf("Looking for avicii: wake me up...\n");
+    temp = find_node(table[0], "avicii", "wake me up");
     if(temp){
         printf("Node Found! %s: %s\n", temp->artist, temp->name);
     }
@@ -44,49 +44,53 @@ int main()
 
     /* test insert_order */
     print_list(table[10]);
-    printf("Inserting Katy Perry: Never Really Over node:\n");\
-    table[10] = insert_order(table[10], init_song_node("Katy Perry", "Never Really Over", NULL));
+    printf("Inserting katy perry: never really over node:\n");\
+    table[10] = insert_order(table[10], init_song_node("katy perry", "never really over", NULL));
     print_list(table[10]);
+    printf("\n");
 
-    printf("Inserting Khalid: Walk into the Song node:\n");
-    table[10] = insert_order(table[10], init_song_node("Khalid", "Walk into the Song", NULL));
+    printf("Inserting khalid: walk into the song node:\n");
+    table[10] = insert_order(table[10], init_song_node("khalid", "walk into the song", NULL));
     print_list(table[10]);
+    printf("\n");
 
-    printf("Inserting Katy Perry: Firework node:\n");
-    table[10] = insert_order(table[10], init_song_node("Katy Perry", "Firework", NULL));
+    printf("Inserting katy perry: firework node:\n");
+    table[10] = insert_order(table[10], init_song_node("katy perry", "firework", NULL));
     print_list(table[10]);
+    printf("\n");
 
-    printf("Inserting Kelly Clarkson: Catch My Breath node:\n");
-    table[10] = insert_order(table[10], init_song_node("Kelly Clarkson", "Catch My Breath", NULL));
-    
+    printf("Inserting kelly clarkson: catch my breath node:\n");
+    table[10] = insert_order(table[10], init_song_node("kelly clarkson", "catch my breath", NULL));
     print_list(table[10]);
     printf("\n");
 
     /* test random element */
     struct song_node * arand = random_element(table[0]);
-    printf("selecting random element from A: %s, %s\n", arand->artist, arand->name);
+    printf("Selecting random element from a: %s, %s\n", arand->artist, arand->name);
     struct song_node * krand = random_element(table[10]);
-    printf("selecting random element from K: %s, %s\n", krand->artist, krand->name);
+    printf("Selecting random element from k: %s, %s\n", krand->artist, krand->name);
     printf("\n");
 
     /* test remove node */
-    printf("removing Katy Perry: Firework node:\n");
-    table[10] = remove_node(table[10], find_node(table[10], "Katy Perry", "Firework"));
+    printf("Removing katy perry: firework node:\n");
+    table[10] = remove_node(table[10], find_node(table[10], "katy perry", "firework"));
     print_list(table[10]);
+    printf("\n");
 
-    printf("removing Khalid: Walk into the Song node:\n");
-    table[10] = remove_node(table[10], find_node(table[10], "Khalid", "Walk into the Song"));
+    printf("Removing khalid: walk into the song node:\n");
+    table[10] = remove_node(table[10], find_node(table[10], "khalid", "walk into the song"));
     print_list(table[10]);
     printf("\n");
 
     /* test free list */
     print_list(table[0]);
-    printf("freeing table[0] (A):");
+    printf("Freeing table[0] (a):");
     table[0] = free_list(table[0]);
     print_list(table[0]);
+    printf("\n");
 
     print_list(table[10]);
-    printf("freeing table[10] (K):");
+    printf("Freeing table[10] (k):");
     table[10] = free_list(table[10]);
     print_list(table[10]);
 }
