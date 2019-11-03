@@ -51,10 +51,21 @@ void print_letter(char c) {
     int temp = c - 97;
     print_list(table[temp]);
 }
-void print_artist(char *artist) {
 
+void print_artist(char *artist) {
+    char temp[2];
+    strncpy (temp, artist, 1);
+    int index = temp[0]-97;
+    while(table[index]) {
+      if (strcmp(table[index] -> artist, artist) == 0) {
+        printf("[ %s : %s ]\n", table[index]-> artist, table[index] -> song);
+      }
+      table[index] = table[index] -> next;
+    }
 }
+
 // void print_all(); // kl 5
+
 void shuffle(int n){
   //print out a series of randomly chosen songs
   int i;

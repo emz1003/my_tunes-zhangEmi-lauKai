@@ -56,7 +56,7 @@ void print_list(struct song_node *x)
         x = x->next;
         if(x)
             printf(" | ");
-        else 
+        else
             break;
     }
     printf("]\n");

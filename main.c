@@ -96,7 +96,7 @@ int main()
     print_list(table[10]);
     printf("\n");
 
-    /* test add song node */
+    /* test add_song_node */
     printf("Testing add_song_node by adding a new song_node with artist bazzi:\n");
     add_song_node("bazzi", "mine");
     printf("Printing table[1]:\n");
@@ -108,9 +108,19 @@ int main()
     print_list(table[1]);
     printf("\n");
 
+    /* test print_letter */
     printf("Testing print_letter:\n");
     add_song_node("post malone", "sunflower");
     table[15]= insert_order(table[15], "post malone", "circles");
+    table[15]= insert_order(table[15], "pharrell williams", "happy");
     print_letter('p');
+    printf("\n");
+
+    /* test print_artist */
+    printf("Testing print_letter:\n");
+    printf("Printing [post malone]:\n");
+    print_artist("post malone");
+    printf("\n");
+
 
 }
