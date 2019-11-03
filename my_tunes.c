@@ -4,11 +4,12 @@
 #include <ctype.h>
 #include "my_tunes.h"
 
-void add_song_node(struct song_node *node){
+void add_song_node(char *artist, char *song){
+    struct song_node *node = init_song_node(artist, song, NULL);
     for (int i = 0; i < 27; i++) {
       if(table[i]){
-        if(strncmp(node -> artist, table[i]->artist, 1) == 0) {
-          insert_order (table[i], node);
+        if(strncmp(artist, table[i]->artist, 1) == 0) {
+          table[i] = insert_order (table[i], artist, song);
         }
       }
     }
