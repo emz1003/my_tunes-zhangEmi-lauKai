@@ -34,7 +34,7 @@ char *find_artist(char *artist) {
     else
       letter = table[26];
     printf("table set\n");
-    
+
     char *result = find_first(letter,artist);
     if(result)
       return artist;
