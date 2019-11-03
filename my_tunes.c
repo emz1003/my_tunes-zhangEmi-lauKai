@@ -21,7 +21,7 @@ struct song_node *find_song(char *artist, char *song) {
     letter = table[(int) (artist[0] - 'a')];
   else
     letter = table[26];
-
+  
   return find_node(letter, artist, song);
 }
 
@@ -31,7 +31,9 @@ char *find_artist(char *artist) {
       letter = table[(int) (artist[0] - 'a')];
     else
       letter = table[26];
+
     char *find = find_first(letter, artist);
+    printf("find = %s\n", find);
     return find;
 }
 
