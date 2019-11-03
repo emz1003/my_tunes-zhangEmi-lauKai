@@ -19,14 +19,10 @@ void print_list(struct song_node *x)
     printf("]\n");
 }
 
-struct song_node *insert_front(struct song_node *x, char *artist, char *name)
+struct song_node *insert_front(struct song_node *node, struct song_node *x)
 {
-    struct song_node *temp = calloc(1, sizeof(struct song_node));
-    strcpy(temp->artist, artist);
-    strcpy(temp->name, name);
-    temp->next = x;
-    //printf("%s\n", temp-> artist);
-    return temp;
+    x->next = node;
+    return x;
 }
 
 char *find_first(struct song_node *x, char *artist) {
@@ -55,30 +51,19 @@ struct song_node *find_node(struct song_node *x, char *artist, char *name){
 }
 
 struct song_node *insert_order(struct song_node *original, struct song_node *x){
-    struct song_node *oldnext = calloc(1, sizeof(struct song_node));
-    while(original){
-        oldnext = original -> next;
-        if(strcmp (x -> artist, original -> artist) < 0) { //checks if this song's artist should be first
-            x -> next = original;
-            printf("1\n");
-            return x;
+    struct song_node *temp = original;
+    struct song_node *next = next;
+
+    if(!original)
+        insert_front(original, x);
+
+    while(strcmp(temp->artist, x->artist) < 0){
+        if(strcmp(next->artist, x->artist) >= 0) {
+
         }
-        if(strcmp(x -> artist, original -> artist) == 0) {//checks if artist is the same
-          //checks to see where to place the song based on name
-          if(strcmp(x -> name, original -> name) > 0 && strcmp(x -> name, oldnext -> name) < 0){
-            x -> next = oldnext;
-            original -> next = x;
-            //printf("2\n");
-            return original;
-          }
-        }
-        if(!oldnext){ //if this artist is the last one
-            x -> next = oldnext;
-            original -> next = x;
-            printf("3\n");
-            return original;
-        }
-      original = original -> next;
+        temp = next;
+        next = next->next;
+
     }
     return NULL;
 

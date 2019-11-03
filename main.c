@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "song_node.h"
 
 int main()
@@ -9,12 +10,16 @@ int main()
     struct song_node *table[27];
     printf("Testing print_list:\n");
     /* test insert_front */
-    table[10] = insert_front(NULL, "Khalid", "Talk");
-    table[10] = insert_front(table[10], "Khalid", "Eastside");
-    table[10] = insert_front(table[10], "Katy Perry", "Harleys in Hawaii");
 
-    table[0] = insert_front(NULL, "Avicii", "Waiting for Love");
-    table[0] = insert_front(table[0], "Avicii", "Levels");
+    struct song_node k = {"Khalid", "Talk", NULL};
+    table[10] = &k;
+    struct song_node k1 = {"Katy Perry", "Harleys in Hawaii", NULL};
+    table[10] = insert_front(table[10], &k1);
+
+    struct song_node a = {"Avicii", "Waiting for Love", NULL};
+    table[0] = &a;
+    struct song_node a1 = {"Avicii", "Levels", NULL};
+    table[0] = insert_front(table[0], &a1);
     print_list(table[0]);
     print_list(table[10]);
     printf("\n");
