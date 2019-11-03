@@ -42,6 +42,7 @@ char *find_artist(char *artist) {
       if(!strcmp(first->next->artist, artist))
         printf(" | ");
     }
+    printf("]");
     return first->artist;
 }
 
@@ -49,18 +50,23 @@ void print_letter(char c) {
     int temp = c - 97;
     print_list(table[temp]);
 }
-// void print_artist(char *artist); //kl 4
-//void print_all(); // kl 5
-void shuffle(){
+void print_artist(char *artist) {
+
+}
+// void print_all(); // kl 5
+void shuffle(int n){
   //print out a series of randomly chosen songs
   int i;
-  //for()
+  printf("[");
+  for(i = 0; i < n; i++) {
+    struct song_node *r = random_element(table[rand() % 27]);
+    printf("%s : %s", r->artist, r->song);
+    if (i != n - 1)
+      printf(" | ");
+  }
+  printf("]");
 }
-
-//void delete_song(char *artist, char *song) {
-
-//}
-
+// void delete_song(char *artist, char *song); // kl 2
 void clear(){
   int i;
   for(i = 0; i < 27; i++) {
