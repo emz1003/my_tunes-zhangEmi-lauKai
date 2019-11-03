@@ -81,14 +81,16 @@ void shuffle(int n){ // account for void cases
     if (i != n - 1)
       printf(" | ");
   }
-  printf("]");
+  printf("]\n");
 }
 
 void delete_song(char *artist, char *song){
-  char temp[2];
-  strncpy(temp, artist, 1);
-  int index = temp[0]-97;
-  remove_node(table[index], init_song_node(artist, song, NULL));
+  struct song_node * letter;
+  if (isalpha(artist[0]))
+    letter = table[(int) (artist[0] - 'a')];
+  else
+    letter = table[26];
+  remove_node(letter, find_song(artist, song));
 }
 
 void clear(){

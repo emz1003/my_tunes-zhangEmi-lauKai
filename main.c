@@ -167,7 +167,7 @@ int main()
         printf("Artist Not Found\n");
     
     printf("\n");
-    
+
     /* testing print_library */
     printf("Testing print_library:\n");
     print_library();
@@ -178,12 +178,14 @@ int main()
     printf("Shuffling library - returning a sequence of 3: \n");
     shuffle(3);
     printf("\n");
+    
     /* testing delete song */
     printf("Testing delete_song:\n");
     printf("Deleting post malone: circles :\n");
     delete_song("post malone", "circles");
     print_library();
     printf("\n");
+
     /* testing clear */
     printf("\n");
 }
