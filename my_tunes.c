@@ -9,10 +9,8 @@ void add_song_node(char *artist, char *song){ // account for non alpha cases
     for (int i = 0; i < 27; i++) {
       char c = i + 'a';
       char *p = &c;
-      if(strncmp(artist, p, 1) == 0) {
-        printf("inserting into table[%d]\n", i);
+      if(strncmp(artist, p, 1) == 0)
         table[i] = insert_order(table[i], artist, song);
-      }
     }
 }
 
@@ -43,15 +41,16 @@ void print_letter(char c) { // account for non alpha cases
     print_list(table[temp]);
 }
 
-void print_artist(char *artist) { // account for non alpha cases
+void print_artist(char *artist) {
     char temp[2];
     strncpy (temp, artist, 1);
     int index = temp[0]-97;
-    while(table[index]) {
-      if (strcmp(table[index] -> artist, artist) == 0) {
-        printf("[ %s : %s ]\n", table[index]-> artist, table[index] -> song);
+    struct song_node *run = table[index];
+    while(run) {
+      if (strcmp(run -> artist, artist) == 0) {
+        printf("[ %s : %s ]\n", run -> artist, run -> song);
       }
-      table[index] = table[index] -> next;
+      run = run -> next;
     }
 }
 

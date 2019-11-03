@@ -10,16 +10,17 @@ int main()
     srand(time(NULL));
     
 
-    /* test insert front */
+    /* test insert_front */
 
-    printf("Testing insert front:\n");
+    printf("Testing insert_front:\n");
     table[10] = init_song_node("khalid","talk",NULL);
     table[10] = insert_front(table[10], "katy perry", "harleys in hawaii");
 
     table[0] = init_song_node("avicii", "waiting for love", NULL);
     table[0] = insert_front(table[0],"avicii", "levels");
 
-    /* test insert order */
+    /* test insert_order */
+    printf("Testing insert_order:\n");
     print_list(table[10]);
     printf("Inserting katy perry: never really over node:\n");\
     table[10] = insert_order(table[10], "katy perry", "never really over");
@@ -37,14 +38,14 @@ int main()
     table[10] = insert_order(table[10], "kelly clarkson", "catch my breath");
     print_list(table[10]);
 
-    /* test print list */
+    /* test print_list */
     printf("Testing print_list:\n");
     print_list(table[0]);
     print_list(table[10]);
     printf("\n");
 
-    /* test find node */
-    printf("Testing find node:\n");
+    /* test find_node */
+    printf("Testing find_node:\n");
     printf("Looking for avicii: levels...\n");
     struct song_node * temp = find_node(table[0], "avicii", "levels");
     if(temp){
@@ -62,19 +63,21 @@ int main()
     }
     printf("\n");
 
-    /* test find first */
-    printf("Testing find first:\n");
+    /* test find_first */
+    printf("Testing find_first:\n");
     printf("Find first song by avicii: %s\n", find_first(table[0], "avicii"));
     printf("\n");
 
-    /* test random element */
+    /* test random_element */
+    printf("Testing random_element:\n");
     struct song_node * arand = random_element(table[0]);
     printf("selecting random element from A: %s, %s\n", arand->artist, arand->song);
     struct song_node * krand = random_element(table[10]);
     printf("selecting random element from K: %s, %s\n", krand->artist, krand->song);
     printf("\n");
 
-    /* test remove node */
+    /* test remove_node */
+    printf("Testing remove_node:\n");
     printf("Removing katy perry: firework node:\n");
     table[10] = remove_node(table[10], find_node(table[10], "katy perry", "firework"));
     print_list(table[10]);
@@ -84,7 +87,8 @@ int main()
     print_list(table[10]);
     printf("\n");
 
-    /* test free list */
+    /* test free_list */
+    printf("Testing free_list:\n");
     print_list(table[0]);
     printf("Freeing table[0] (a):");
     table[0] = free_list(table[0]);
@@ -131,32 +135,26 @@ int main()
     printf("\n");
 
 
-    /* testing find song */
-    printf("Testing find song:\n");
+    /* testing find_song */
+    printf("Testing find_song:\n");
 
-    printf("looking for [post malone: sunflower]: \n");
+    printf("Looking For [post malone: sunflower]: \n");
     struct song_node *sunflower = find_song("post malone", "sunflower");
     if (sunflower)
-        printf("song found! %s : %s\n", sunflower->artist, sunflower->song);
+        printf("Song Found! %s : %s\n", sunflower->artist, sunflower->song);
     else
-        printf("song not found\n");
+        printf("Song Not Found\n");
 
-    printf("looking for [post malone: deja vu]: \n");
+    printf("Looking For [post malone: deja vu]: \n");
     struct song_node *dejavu = find_song("post malone", "deja vu");
     if (dejavu)
-        printf("song found! %s : %s\n", dejavu->artist, dejavu->song);
+        printf("Song Found! %s : %s\n", dejavu->artist, dejavu->song);
     else
-        printf("song not found\n");
-    printf("\n");
-    
+        printf("Song Not Found\n");
+
     /* testing find artist */
     printf("Testing find artist:\n");
 
-    printf("\n");
-    /* testing print letter */
-    printf("\n");
-    /* testing print artist */
-    printf("\n");
     /* testing print all */
     printf("\n");
     /* testing shuffle */
