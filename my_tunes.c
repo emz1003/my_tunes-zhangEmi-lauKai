@@ -94,17 +94,20 @@ void shuffle(int n){
 }
 
 void delete_song(char *artist, char *song){
-  struct song_node * letter;
-  if (isalpha(artist[0]))
-    letter = table[(int) (artist[0] - 'a')];
-  else
-    letter = table[26];
-  remove_node(letter, find_song(artist, song));
+  int tab_num;
+  if (isalpha(artist[0])){
+    tab_num = (int) (artist[0] - 'a');
+  }
+  else{
+    tab_num = 26;
+  }
+    table[tab_num] = remove_node(table[tab_num], find_node(table[tab_num], artist, song));
 }
 
 void clear(){
   int i;
   for(i = 0; i < 27; i++) {
-    table[i] = free_list(table[i]);
+    if(table[i])
+      table[i] = free_list(table[i]);
   }
 }

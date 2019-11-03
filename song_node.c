@@ -21,7 +21,6 @@ struct song_node *insert_front(struct song_node *node, char *artist, char *song)
 
 struct song_node *insert_order(struct song_node *original, char *artist, char *song){
     // if original is null or artist in front
-    struct song_node *node = init_song_node(artist, song, NULL);
     if(!original || strcmp(original->artist, artist) > 0){
         return insert_front(original, artist, song);
     }
@@ -29,7 +28,7 @@ struct song_node *insert_order(struct song_node *original, char *artist, char *s
     if(!strcmp(original->artist, artist) && strcmp(original->song, song) >= 0){
         return insert_front(original, artist, song);
     }
-
+    struct song_node *node = init_song_node(artist, song, NULL);
     struct song_node *temp = original;
     struct song_node *next = temp->next;
 
@@ -63,7 +62,7 @@ void print_list(struct song_node *x)
 }
 
 struct song_node *find_node(struct song_node *x, char *artist, char *song){
-    while (x) {
+    while(x) {
       if (strcmp(x -> artist, artist) == 0 && strcmp(x -> song, song) == 0){
         return x;
       }
@@ -72,7 +71,7 @@ struct song_node *find_node(struct song_node *x, char *artist, char *song){
     return NULL;
 }
 
-char *find_first(struct song_node *x, char *artist) {
+char * find_first(struct song_node *x, char *artist) {
     if(!x)
         return NULL;
     
@@ -106,9 +105,9 @@ struct song_node *random_element(struct song_node *node) {
 
 struct song_node * remove_node(struct song_node *node, struct song_node *rm) {
     if(node == rm) {
-        node = node->next;
+        struct song_node *temp = node->next;
         free(rm);
-        return node;
+        return temp;
     }
 
     struct song_node *temp = node;

@@ -217,12 +217,11 @@ int main()
     /* testing delete song */
     printf("Testing delete_song:\n");
 
+    printf("Deleting 21 pilots: chlorine :\n");
+    delete_song("21 pilots", "chlorine");
+
     printf("Deleting post malone: circles :\n");
     delete_song("post malone", "circles");
-
-    printf("Deleting 21 pilots: chlorine :\n");
-    printf("\n");
-    delete_song("21 pilots", "chlorine");
 
     print_library();
     printf("\n");
