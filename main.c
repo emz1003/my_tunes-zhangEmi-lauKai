@@ -78,4 +78,16 @@ int main()
     printf("removing Khalid: Walk into the Song node:\n");
     table[10] = remove_node(table[10], find_node(table[10], "Khalid", "Walk into the Song"));
     print_list(table[10]);
+    printf("\n");
+
+    /* test free list */
+    print_list(table[0]);
+    printf("freeing table[0] (A):");
+    table[0] = free_list(table[0]);
+    print_list(table[0]);
+
+    print_list(table[10]);
+    printf("freeing table[10] (K):");
+    table[10] = free_list(table[10]);
+    print_list(table[10]);
 }

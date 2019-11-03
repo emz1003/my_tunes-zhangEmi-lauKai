@@ -16,4 +16,4 @@ struct song_node *find_node(struct song_node *x, char *artist, char *name);
 char *find_first(struct song_node *x, char *artist);
 struct song_node *random_element(struct song_node *x);
 struct song_node *remove_node(struct song_node *node, struct song_node *rm);
-void free_list(struct song_node *nodes);
+struct song_node *free_list(struct song_node *nodes);

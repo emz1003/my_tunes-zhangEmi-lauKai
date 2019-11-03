@@ -107,7 +107,7 @@ struct song_node * remove_node(struct song_node *node, struct song_node *rm) {
         free(rm);
         return node;
     }
-    
+
     struct song_node *temp = node;
     struct song_node *next = node->next;
     while(next) {
@@ -121,4 +121,12 @@ struct song_node * remove_node(struct song_node *node, struct song_node *rm) {
     }
     return node;
 }
-// void free_list(struct song_node *nodes);
+
+struct song_node *free_list(struct song_node *nodes){
+    while(nodes) {
+        struct song_node *temp = nodes;
+        nodes = nodes->next;
+        free(temp);
+    }
+    return nodes;
+}
