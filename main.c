@@ -101,8 +101,14 @@ int main()
     add_song_node(init_song_node("bazzi","mine",NULL));
     printf("Printing table[1]:\n");
     print_list(table[1]);
-    printf("\n");
-
+    printf("Added a new bazzi song:\n");
     add_song_node(init_song_node("bazzi","beautiful",NULL));
     print_list(table[1]);
+    printf("\n");
+
+    printf("Testing print_letter:\n");
+    add_song_node(init_song_node("post malone","sunflower",NULL));
+    table[15]= insert_order(table[15], init_song_node("post malone","circles",NULL));
+    print_letter('p');
+
 }

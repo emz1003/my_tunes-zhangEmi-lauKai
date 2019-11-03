@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h> 
+#include <ctype.h>
 #include "my_tunes.h"
 
 void add_song_node(struct song_node *node){
@@ -24,7 +24,7 @@ struct song_node *find_song(char *artist, char *song) {
     letter = table[(int) (artist[0] - 'a')];
   else
     letter = table[26];
-  
+
   return find_node(letter, artist, song);
 }
 
@@ -45,15 +45,22 @@ char *find_artist(char *artist) {
     return first->artist;
 }
 
-// void print_letter(char c); // kl 3
+void print_letter(char c) {
+    int temp = c - 97;
+    print_list(table[temp]);
+}
 // void print_artist(char *artist); //kl 4
-// void print_all(); // kl 5
+//void print_all(); // kl 5
 void shuffle(){
   //print out a series of randomly chosen songs
   int i;
   //for()
-} 
-// void delete_song(char *artist, char *song); // kl 2
+}
+
+//void delete_song(char *artist, char *song) {
+
+//}
+
 void clear(){
   int i;
   for(i = 0; i < 27; i++) {
