@@ -67,9 +67,9 @@ int main()
 
     /* test random element */
     struct song_node * arand = random_element(table[0]);
-    printf("selecting random element from A: %s, %s\n", arand->artist, arand->song);
+    printf("Selecting Random Element From A: %s, %s\n", arand->artist, arand->song);
     struct song_node * krand = random_element(table[10]);
-    printf("selecting random element from K: %s, %s\n", krand->artist, krand->song);
+    printf("Selecting Random Element From K: %s, %s\n", krand->artist, krand->song);
     printf("\n");
 
     /* test remove node */
@@ -133,6 +133,7 @@ int main()
         printf("Song Found! %s : %s\n", sunflower->artist, sunflower->song);
     else
         printf("Song Not Found\n");
+    printf("\n");
 
     printf("Looking For [post malone: deja vu]: \n");
     struct song_node *dejavu = find_song("post malone", "deja vu");
@@ -140,14 +141,22 @@ int main()
         printf("Song Found! %s : %s\n", dejavu->artist, dejavu->song);
     else
         printf("Song Not Found\n");
+    printf("\n");
 
     /* testing find artist */
 
-    /* testing print all */
+    /* testing print_library */
+    printf("Testing print_library:\n");
+    print_library();
+    printf("\n");
 
     /* testing shuffle */
 
     /* testing delete song */
-
+    printf("Testing delete_song:\n");
+    printf("Deleting post malone: circles :\n");
+    delete_song("post malone", "circles");
+    print_library();
+    printf("\n");
     /* testing clear */
 }

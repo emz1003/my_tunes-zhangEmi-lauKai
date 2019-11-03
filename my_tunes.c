@@ -61,7 +61,16 @@ void print_artist(char *artist) {
     }
 }
 
-// void print_all(); // kl 5
+void print_library(){
+    for (int i = 0; i < 27; i++) {
+      if(table[i]){
+        char temp[1];
+        strncpy(temp, table[i]-> artist, 1);
+        printf("Printing the %s list:\n", temp);
+        print_list(table[i]);
+      }
+    }
+}
 
 void shuffle(int n){
   //print out a series of randomly chosen songs
@@ -76,7 +85,12 @@ void shuffle(int n){
   printf("]");
 }
 
-// void delete_song(char *artist, char *song); // kl 2
+void delete_song(char *artist, char *song){
+  char temp[2];
+  strncpy(temp, artist, 1);
+  int index = temp[0]-97;
+  remove_node(table[index], init_song_node(artist, song, NULL));
+}
 
 void clear(){
   int i;

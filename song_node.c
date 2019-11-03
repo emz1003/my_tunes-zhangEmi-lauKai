@@ -94,7 +94,7 @@ struct song_node *random_element(struct song_node *node) {
     }
     int r = rand();
     int rand_index =((float)(r % 100) / 100) * (float)len;
-    printf("%d/%d\n", rand_index, len);
+    //printf("%d/%d\n", rand_index, len);
     int i;
     for (i = 0; i < rand_index; i++) {
         node = node->next;
