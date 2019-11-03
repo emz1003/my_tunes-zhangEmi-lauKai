@@ -3,7 +3,10 @@
 #include <string.h>
 #include "my_tunes.h"
 
-// void add_song_node(struct song_node *node); // kl 1
+void add_song_node(struct song_node *node){
+  
+}
+
 struct song_node *find_song(char *artist, char *song) {
   struct song_node * letter;
   if (isalpha(artist[0]))
