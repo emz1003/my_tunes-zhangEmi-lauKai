@@ -130,4 +130,18 @@ int main()
         printf("song found! %s : %s\n", dejavu->artist, dejavu->song);
     else
         printf("song not found\n");
+    
+    /* testing find artist */
+
+    /* testing print letter */
+
+    /* testing print artist */
+
+    /* testing print all */
+
+    /* testing shuffle */
+
+    /* testing delete song */
+
+    /* testing clear */
 }
