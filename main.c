@@ -96,7 +96,7 @@ int main()
     print_list(table[10]);
     printf("\n");
 
-    /* test add song node */
+    /* test add_song_node */
     printf("Testing add_song_node:\n");
     printf("adding a new song_node with artist bazzi:");
     add_song_node("bazzi", "mine");
@@ -108,14 +108,28 @@ int main()
     add_song_node("bazzi", "beautiful");
     print_list(table[1]);
 
-    printf("adding post malone songs:");
+    printf("adding post malone songs:\n");
     add_song_node("post malone", "sunflower");
     add_song_node("post malone", "circles");
     add_song_node("post malone", "better now");
+    printf("adding pharrell williams : happy :\n");
+    add_song_node("pharrell williams", "happy");
+
+    /* test print_letter */
+    printf("Testing print_letter:\n");
+    print_letter('p');
     printf("\n");
 
     printf("Testing print_letter:\n");
     print_letter('p');
+    printf("\n");
+
+    /* test print_artist */
+    printf("Testing print_letter:\n");
+    printf("Printing [post malone]:\n");
+    print_artist("post malone");
+    printf("\n");
+
 
     /* testing find song */
     printf("Testing find song:\n");
@@ -126,7 +140,7 @@ int main()
         printf("song found! %s : %s\n", sunflower->artist, sunflower->song);
     else
         printf("song not found\n");
-    
+
     printf("looking for [post malone: deja vu]: \n");
     struct song_node *dejavu = find_song("post malone", "deja vu");
     if (dejavu)
