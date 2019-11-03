@@ -6,6 +6,7 @@
 
 int main()
 {
+    clear();
     srand(time(NULL));
     printf("Testing print_list:\n");
     /* test insert_front */
@@ -93,5 +94,4 @@ int main()
     printf("Freeing table[10] (k):");
     table[10] = free_list(table[10]);
     print_list(table[10]);
-
 }
