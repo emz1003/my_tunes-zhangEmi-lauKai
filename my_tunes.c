@@ -66,7 +66,9 @@ void shuffle(int n){
   }
   printf("]");
 }
+
 // void delete_song(char *artist, char *song); // kl 2
+
 void clear(){
   int i;
   for(i = 0; i < 27; i++) {
