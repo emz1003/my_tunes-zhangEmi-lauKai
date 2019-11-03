@@ -6,6 +6,7 @@
 
 int main()
 {
+    clear();
     srand(time(NULL));
     printf("Testing print_list:\n");
     /* test insert_front */
