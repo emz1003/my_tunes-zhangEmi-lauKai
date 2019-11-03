@@ -113,8 +113,7 @@ int main()
     add_song_node("post malone", "sunflower");
     table[15]= insert_order(table[15], "post malone", "circles");
     table[15]= insert_order(table[15], "pharrell williams", "happy");
-    add_song_node("post malone", "circles");
-    add_song_node("post malone", "better now");
+    table[15]= insert_order(table[15], "post malone", "better now");
     print_letter('p');
     printf("\n");
 
@@ -126,27 +125,23 @@ int main()
 
 
     /* testing find song */
-    printf("Testing find song:\n");
+    printf("Testing find_song:\n");
 
-    printf("looking for [post malone: sunflower]: \n");
+    printf("Looking For [post malone: sunflower]: \n");
     struct song_node *sunflower = find_song("post malone", "sunflower");
     if (sunflower)
-        printf("song found! %s : %s\n", sunflower->artist, sunflower->song);
+        printf("Song Found! %s : %s\n", sunflower->artist, sunflower->song);
     else
-        printf("song not found\n");
+        printf("Song Not Found\n");
 
-    printf("looking for [post malone: deja vu]: \n");
+    printf("Looking For [post malone: deja vu]: \n");
     struct song_node *dejavu = find_song("post malone", "deja vu");
     if (dejavu)
-        printf("song found! %s : %s\n", dejavu->artist, dejavu->song);
+        printf("Song Found! %s : %s\n", dejavu->artist, dejavu->song);
     else
-        printf("song not found\n");
+        printf("Song Not Found\n");
 
     /* testing find artist */
-
-    /* testing print letter */
-
-    /* testing print artist */
 
     /* testing print all */
 

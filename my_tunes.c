@@ -52,11 +52,12 @@ void print_artist(char *artist) {
     char temp[2];
     strncpy (temp, artist, 1);
     int index = temp[0]-97;
-    while(table[index]) {
-      if (strcmp(table[index] -> artist, artist) == 0) {
-        printf("[ %s : %s ]\n", table[index]-> artist, table[index] -> song);
+    struct song_node *run = table[index];
+    while(run) {
+      if (strcmp(run -> artist, artist) == 0) {
+        printf("[ %s : %s ]\n", run -> artist, run -> song);
       }
-      table[index] = table[index] -> next;
+      run = run -> next;
     }
 }
 
