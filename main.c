@@ -93,4 +93,15 @@ int main()
     printf("Freeing table[10] (k):");
     table[10] = free_list(table[10]);
     print_list(table[10]);
+    printf("\n");
+
+    /* test add song node */
+    printf("Testing add_song_node by adding a new song_node with artist bazzi:\n");
+    add_song_node(init_song_node("bazzi","mine",NULL));
+    printf("Printing table[1]:\n");
+    print_list(table[1]);
+    printf("\n");
+
+    add_song_node(init_song_node("bazzi","beautiful",NULL));
+    print_list(table[1]);
 }
