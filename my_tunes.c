@@ -4,13 +4,17 @@
 #include <ctype.h>
 #include "my_tunes.h"
 
-void add_song_node(char *artist, char *song){ // account for non alpha cases
+void add_song_node(char *artist, char *song){
     struct song_node *node = init_song_node(artist, song, NULL);
     for (int i = 0; i < 27; i++) {
-      char c = i + 'a';
-      char *p = &c;
-      if(strncmp(artist, p, 1) == 0)
-        table[i] = insert_order(table[i], artist, song);
+      if(isalpha(artist[0])){
+        char c = i + 'a';
+        char *p = &c;
+        if(strncmp(artist, p, 1) == 0)
+          table[i] = insert_order(table[i], artist, song);
+      } else if (i == 26){
+        table[26] = insert_order(table[26], artist, song);
+      }
     }
 }
 
@@ -20,7 +24,6 @@ struct song_node *find_song(char *artist, char *song) {
     letter = table[(int) (artist[0] - 'a')];
   else
     letter = table[26];
-  print_list(table[15]);
   return find_node(letter, artist, song);
 }
 
@@ -38,16 +41,21 @@ char *find_artist(char *artist) {
     return NULL;
 }
 
-void print_letter(char c) { // account for non alpha cases
-    int temp = c - 97;
-    print_list(table[temp]);
+void print_letter(char c) {
+    struct song_node *letter;
+    if (isalpha(c))
+      letter = table[(int) (c - 'a')];
+    else
+      letter = table[26];
+    print_list(letter);
 }
 
 void print_artist(char *artist) {
-    char temp[2];
-    strncpy (temp, artist, 1);
-    int index = temp[0]-97;
-    struct song_node *run = table[index];
+    struct song_node *run;
+    if (isalpha(artist[0]))
+      run = table[(int) (artist[0] - 'a')];
+    else
+      run = table[26];
     while(run) {
       if (strcmp(run -> artist, artist) == 0) {
         printf("[ %s : %s ]\n", run -> artist, run -> song);
@@ -58,16 +66,17 @@ void print_artist(char *artist) {
 
 void print_library(){
     for (int i = 0; i < 27; i++) {
-      if(table[i]){
-        char temp[1];
-        strncpy(temp, table[i]-> artist, 1);
-        printf("Printing the %s list:\n", temp);
+      if(table[i] && i != 26){
+        printf("Printing the %c list:\n", 'a' + i);
         print_list(table[i]);
+      } else if (i == 26) {
+        printf("Printing the misc list:\n");
+        print_list(table[26]);
       }
     }
 }
 
-void shuffle(int n){ // account for void cases
+void shuffle(int n){
   //print out a series of randomly chosen songs
   int i;
   printf("[");

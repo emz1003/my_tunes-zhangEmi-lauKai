@@ -118,17 +118,26 @@ int main()
     printf("adding pharrell williams : happy :\n");
     add_song_node("pharrell williams", "happy");
 
+    printf("adding 21 pilots songs:\n");
+    add_song_node("21 pilots", "heathens");
+    add_song_node("21 pilots", "chlorine");
+    add_song_node("21 pilots", "the hype");
+    printf("\n");
     /* test print_letter */
     printf("Testing print_letter:\n");
     print_letter('p');
+
+    print_letter('\0');
     printf("\n");
 
     /* test print_artist */
     printf("Testing print_letter:\n");
     printf("Printing [post malone]:\n");
     print_artist("post malone");
-    printf("\n");
 
+    printf("Printing [21 pilots]:\n");
+    print_artist("21 pilots");
+    printf("\n");
 
     /* testing find_song */
     printf("Testing find_song:\n");
@@ -149,6 +158,14 @@ int main()
         printf("Song Not Found\n");
     printf("\n");
 
+    printf("Looking For [21 pilots: chlorine]: \n");
+    struct song_node *chlorine = find_song("21 pilots", "chlorine");
+    if (chlorine)
+        printf("Song Found! %s : %s\n", chlorine->artist, chlorine->song);
+    else
+        printf("Song Not Found\n");
+    printf("\n");
+
     /* testing find artist */
     printf("Testing find_artist:\n");
 
@@ -165,6 +182,13 @@ int main()
         printf("Artist Found! %s\n", a1);
     else
         printf("Artist Not Found\n");
+
+    printf("Looking for 21 pilots: \n");
+    char *a2 = find_artist("21 pilots");
+    if(a2) 
+        printf("Artist Found! %s\n", a2);
+    else
+        printf("Artist Not Found\n");
     
     printf("\n");
 
@@ -175,14 +199,19 @@ int main()
 
     /* testing shuffle */
     printf("Testing shuffle:\n");
-    printf("Shuffling library - returning a sequence of 3: \n");
-    shuffle(3);
+    printf("Shuffling library - returning a sequence of 5: \n");
+    shuffle(5);
     printf("\n");
-    
+
     /* testing delete song */
     printf("Testing delete_song:\n");
+
     printf("Deleting post malone: circles :\n");
     delete_song("post malone", "circles");
+
+    printf("Deleting 21 pilots: chlorine :\n");
+    delete_song("21 pilots", "chlorine");
+
     print_library();
     printf("\n");
 
