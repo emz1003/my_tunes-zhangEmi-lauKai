@@ -2,12 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "song_node.h"
+#include "my_tunes.h"
 
 int main()
 {
     srand(time(NULL));
-    struct song_node *table[27];
     printf("Testing print_list:\n");
     /* test insert_front */
 
