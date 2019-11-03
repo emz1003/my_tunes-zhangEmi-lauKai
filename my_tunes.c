@@ -30,10 +30,12 @@ char *find_artist(char *artist) {
       letter = table[(int) (artist[0] - 'a')];
     else
       letter = table[26];
+    printf("table set\n");
 
-    char *find = find_first(letter, artist);
-    printf("find = %s\n", find);
-    return find;
+    char *result = find_first(letter,artist);
+    if(result)
+      return artist;
+    return NULL;
 }
 
 void print_letter(char c) { // account for non alpha cases
@@ -70,20 +72,25 @@ void shuffle(int n){ // account for void cases
   int i;
   printf("[");
   for(i = 0; i < n; i++) {
-    struct song_node *r = random_element(table[rand() % 27]);
+    int randint = rand() % 27;
+    while (!table[randint]) {
+      randint = rand() % 27;
+    }
+    struct song_node *r = random_element(table[randint]);
     printf("%s : %s", r->artist, r->song);
     if (i != n - 1)
       printf(" | ");
   }
-  printf("]");
+  printf("]\n");
 }
 
 void delete_song(char *artist, char *song){
-  char temp[2];
-  strncpy(temp, artist, 1);
-  int index = temp[0]-97;
-  struct song_node *run = init_song_node(artist, song, NULL);
-  table[index] = remove_node(table[index], run);
+  struct song_node * letter;
+  if (isalpha(artist[0]))
+    letter = table[(int) (artist[0] - 'a')];
+  else
+    letter = table[26];
+  remove_node(letter, find_song(artist, song));
 }
 
 void clear(){
