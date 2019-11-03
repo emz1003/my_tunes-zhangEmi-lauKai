@@ -4,14 +4,13 @@
 #include <ctype.h>
 #include "my_tunes.h"
 
-void add_song_node(char *artist, char *song){
+void add_song_node(char *artist, char *song){ // account for non alpha cases
     struct song_node *node = init_song_node(artist, song, NULL);
     for (int i = 0; i < 27; i++) {
       char c = i + 'a';
       char *p = &c;
-      if(strncmp(artist, p, 1) == 0) {
+      if(strncmp(artist, p, 1) == 0)
         table[i] = insert_order(table[i], artist, song);
-      }
     }
 }
 
@@ -21,7 +20,7 @@ struct song_node *find_song(char *artist, char *song) {
     letter = table[(int) (artist[0] - 'a')];
   else
     letter = table[26];
-
+  print_list(table[15]);
   return find_node(letter, artist, song);
 }
 
@@ -32,18 +31,12 @@ char *find_artist(char *artist) {
     else
       letter = table[26];
 
-    struct song_node *first = find_node(letter, artist, find_first(letter, artist));
-    printf("[");
-    while(!strcmp(first->artist, artist)) {
-      printf("%s : %s", first->artist, first->song);
-      if(!strcmp(first->next->artist, artist))
-        printf(" | ");
-    }
-    printf("]");
-    return first->artist;
+    char *find = find_first(letter, artist);
+    printf("find = %s\n", find);
+    return find;
 }
 
-void print_letter(char c) {
+void print_letter(char c) { // account for non alpha cases
     int temp = c - 97;
     print_list(table[temp]);
 }
@@ -72,7 +65,7 @@ void print_library(){
     }
 }
 
-void shuffle(int n){
+void shuffle(int n){ // account for void cases
   //print out a series of randomly chosen songs
   int i;
   printf("[");
