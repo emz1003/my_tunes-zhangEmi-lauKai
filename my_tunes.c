@@ -10,6 +10,7 @@ void add_song_node(char *artist, char *song){ // account for non alpha cases
       char c = i + 'a';
       char *p = &c;
       if(strncmp(artist, p, 1) == 0) {
+        printf("inserting into table[%d]\n", i);
         table[i] = insert_order(table[i], artist, song);
       }
     }
@@ -21,7 +22,7 @@ struct song_node *find_song(char *artist, char *song) {
     letter = table[(int) (artist[0] - 'a')];
   else
     letter = table[26];
-  
+  print_list(table[15]);
   return find_node(letter, artist, song);
 }
 
