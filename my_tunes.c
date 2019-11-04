@@ -33,7 +33,7 @@ char *find_artist(char *artist) {
       letter = table[(int) (artist[0] - 'a')];
     else
       letter = table[26];
-    printf("table set\n");
+    //printf("table set\n");
 
     char *result = find_first(letter,artist);
     if(result)

@@ -136,13 +136,15 @@ int main()
 
     /* test print_letter */
     printf("Testing print_letter:\n");
+    printf("Printing the p list:\n");
     print_letter('p');
 
+    printf("Printing the misc list:\n");
     print_letter('\0');
     printf("\n");
 
     /* test print_artist */
-    printf("Testing print_letter:\n");
+    printf("Testing print_artist:\n");
     printf("Printing [post malone]:\n");
     print_artist("post malone");
 
